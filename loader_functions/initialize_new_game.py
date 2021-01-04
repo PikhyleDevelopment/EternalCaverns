@@ -11,7 +11,7 @@ from render_functions import RenderOrder
 
 
 def get_constants():
-    window_title = 'EternalCaverns v0.1'
+    window_title = 'EternalCaverns v0.2'
 
     screen_width = 120
     screen_height = 90
