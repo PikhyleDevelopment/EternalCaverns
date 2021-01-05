@@ -19,7 +19,7 @@ from equipment_slots import EquipmentSlots
 
 
 def get_constants():
-    window_title = 'EternalCaverns v0.3'
+    window_title = 'EternalCaverns v0.4'
 
     screen_width = 120
     screen_height = 90

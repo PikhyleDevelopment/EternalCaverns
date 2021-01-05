@@ -27,3 +27,21 @@ Other things added by me and other settings changed.
 
 ### Equipping Items
 When in the inventory screen, press the corresponding key to the item to equip/dequip the item.
+
+### Current Monsters
+- Orc
+- Troll
+- Blood Elf
+
+### Current Magic
+- Lightning Scroll
+	- Area of Effect attack on closest enemies.
+- Fireball Scroll
+	- Area of Effect attack. Targetable.
+- Confusion Scroll
+	- Target an enemy to confuse it for a certain amount of turns.
+
+### Current Potions
+- Health Potion
+	- Adds 30 HP
+
