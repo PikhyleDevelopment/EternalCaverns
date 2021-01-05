@@ -1,3 +1,7 @@
+## DEBUG ##
+import pdb
+###########
+
 import tcod as libtcod
 
 from components.fighter import Fighter
@@ -21,7 +25,7 @@ def get_constants():
     screen_height = 90
 
     bar_width = 20
-    panel_height = 7
+    panel_height = 9
     panel_y = screen_height - panel_height
 
     message_x = bar_width + 2
@@ -31,9 +35,9 @@ def get_constants():
     map_width = 80
     map_height = screen_height - panel_height
 
-    room_max_size = 14
-    room_min_size = 10
-    max_rooms = 32
+    room_max_size = 10
+    room_min_size = 6
+    max_rooms = 30
 
     fov_algorithm = 0
     fov_light_walls = True
@@ -90,6 +94,9 @@ def get_game_variables(constants):
     player.inventory.add_item(dagger)
     player.equipment.toggle_equip(dagger)
 
+    ## DEBUG ##
+    #pdb.set_trace()
+    ###############
     game_map = GameMap(constants['map_width'], constants['map_height'])
     game_map.make_map(constants['max_rooms'], constants['room_min_size'], constants['room_max_size'],
             constants['map_width'], constants['map_width'], player, entities)

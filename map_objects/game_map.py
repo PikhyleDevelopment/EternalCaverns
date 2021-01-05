@@ -1,4 +1,5 @@
 import tcod as libtcod
+
 from random import randint
 
 from components.ai import BasicMonster
@@ -41,7 +42,7 @@ class GameMap:
             w = randint(room_min_size, room_max_size)
             h = randint(room_min_size, room_max_size)
             # random position without going out of boundries of the map
-            x = randint(0, map_width - w -1)
+            x = randint(0, map_width - w - 1)
             y = randint(0, map_height - h - 1)
             
             # "Rect" class makes rectangles easier to work with
@@ -128,7 +129,7 @@ class GameMap:
 
         item_chances = {
                 'healing_potion': 35,
-                'sword': from_dungeon_level([[5, 4]], self.dungeon_level),
+                'sword': from_dungeon_level([[5, 2]], self.dungeon_level),
                 'shield': from_dungeon_level([[15, 8]], self.dungeon_level),
                 'lightning_scroll': from_dungeon_level([[25, 4]], self.dungeon_level),
                 'fireball_scroll': from_dungeon_level([[25, 6]], self.dungeon_level),
