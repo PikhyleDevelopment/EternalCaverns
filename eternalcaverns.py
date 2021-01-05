@@ -80,6 +80,14 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 game_state = GameStates.ENEMY_TURN
 
         elif wait:
+            if player.fighter.hp < player.fighter.max_hp:
+                player.fighter.hp += 5
+
+                message_log.add_message(Message('You rest, and start to feel better!', libtcod.lighter_green))
+                if player.fighter.hp >= player.fighter.max_hp:
+                    player.fighter.hp = player.fighter.max_hp
+                    message_log.add_message(Message('You feel refreshed', libtcod.lighter_green))
+
             game_state = GameStates.ENEMY_TURN
 
         elif pickup and game_state == GameStates.PLAYERS_TURN:
