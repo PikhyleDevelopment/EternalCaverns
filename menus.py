@@ -41,6 +41,8 @@ def inventory_menu(con, header, player, inventory_width, screen_width, screen_he
                 options.append('{0} (on main hand)'.format(item.name))
             elif player.equipment.off_hand == item:
                 options.append('{0} (on off hand)'.format(item.name))
+            elif player.equipment.neck == item:
+                options.append('{0} (on neck)'.format(item.name))
             else:
                 options.append(item.name)
 

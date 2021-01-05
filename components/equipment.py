@@ -2,9 +2,10 @@ from equipment_slots import EquipmentSlots
 
 
 class Equipment:
-    def __init__(self, main_hand=None, off_hand=None):
+    def __init__(self, main_hand=None, off_hand=None, neck=None):
         self.main_hand = main_hand
         self.off_hand = off_hand
+        self.neck = neck
 
     @property
     def max_hp_bonus(self):
@@ -15,6 +16,9 @@ class Equipment:
 
         if self.off_hand and self.off_hand.equippable:
             bonus += self.off_hand.equippable.max_hp_bonus
+        
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.max_hp_bonus
 
         return bonus
 
@@ -28,6 +32,9 @@ class Equipment:
         if self.off_hand and self.off_hand.equippable:
             bonus += self.off_hand.equippable.power_bonus
 
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.power_bonus
+
         return bonus
 
     @property
@@ -39,6 +46,9 @@ class Equipment:
 
         if self.off_hand and self.off_hand.equippable:
             bonus += self.off_hand.equippable.defense_bonus
+
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.defense_bonus
 
         return bonus
 
@@ -66,6 +76,16 @@ class Equipment:
                     results.append({'dequipped': self.off_hand})
 
                 self.off_hand = equippable_entity
+                results.append({'equipped': equippable_entity})
+        elif slot == EquipmentSlots.NECK:
+            if self.neck == equippable_entity:
+                self.neck = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.neck:
+                    results.append({'dequipped': self.neck})
+
+                self.neck = equippable_entity
                 results.append({'equipped': equippable_entity})
 
         return results
